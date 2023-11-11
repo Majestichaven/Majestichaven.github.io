@@ -1,2 +1,1 @@
-# Majestichaven.github.io
 Majestichaven
