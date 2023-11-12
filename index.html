@@ -10,6 +10,7 @@
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
+      color: #333;
     }
 
     header {
@@ -21,22 +22,39 @@
 
     nav {
       display: none;
+      flex-direction: column;
+      align-items: center;
       background-color: #333;
       padding: 1em;
+      position: absolute;
+      width: 100%;
+      top: 60px;
+      left: 0;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
 
     nav a {
-      display: block;
       color: #fff;
       text-decoration: none;
-      margin-bottom: 0.5em;
+      margin: 1em 0;
       font-size: 1.2em;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #ffc107;
     }
 
     #menu-icon {
-      display: none;
+      display: block;
       cursor: pointer;
       font-size: 1.5em;
+      color: #fff;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
     }
 
     section {
@@ -52,6 +70,11 @@
       margin: 1em;
       overflow: hidden;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .property:hover {
+      transform: scale(1.05);
     }
 
     .property img {
@@ -66,11 +89,7 @@
 
     @media only screen and (max-width: 600px) {
       nav {
-        display: block;
-      }
-
-      #menu-icon {
-        display: block;
+        top: 80px;
       }
     }
   </style>
@@ -80,14 +99,14 @@
     <h1>Majestic Haven Real Estate</h1>
   </header>
   
+  <div id="menu-icon">&#9776;</div>
+
   <nav id="nav">
     <a href="#">Home</a>
     <a href="#">Properties</a>
     <a href="#">Services</a>
     <a href="#">Contact</a>
   </nav>
-
-  <div id="menu-icon">&#9776; Menu</div>
 
   <section>
     <div class="property">
@@ -116,9 +135,11 @@
   </section>
 
   <script>
-    document.getElementById('menu-icon').addEventListener('click', function() {
-      var nav = document.getElementById('nav');
-      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    var menuIcon = document.getElementById('menu-icon');
+    var nav = document.getElementById('nav');
+
+    menuIcon.addEventListener('click', function() {
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
     });
   </script>
 </body>
