@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Majestic Haven Real Estate</title>
+  <title>Jade Mills Estates</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -21,23 +21,19 @@
     }
 
     nav {
-      display: none;
-      flex-direction: column;
+      display: flex;
+      justify-content: space-around;
       align-items: center;
       background-color: #333;
       padding: 1em;
-      position: absolute;
-      width: 100%;
-      top: 60px;
-      left: 0;
-      z-index: 1;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      margin: 1em 0;
       font-size: 1.2em;
       transition: color 0.3s ease-in-out;
     }
@@ -46,22 +42,14 @@
       color: #ffc107;
     }
 
-    #menu-icon {
-      display: block;
-      cursor: pointer;
-      font-size: 1.5em;
-      color: #fff;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 2;
+    section {
+      padding: 2em;
     }
 
-    section {
+    .featured-listing {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-      padding: 2em;
     }
 
     .property {
@@ -71,6 +59,7 @@
       overflow: hidden;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease-in-out;
+      cursor: pointer;
     }
 
     .property:hover {
@@ -86,60 +75,58 @@
     .property-info {
       padding: 1em;
     }
-
-    @media only screen and (max-width: 600px) {
-      nav {
-        top: 80px;
-      }
-    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Majestic Haven Real Estate</h1>
+    <h1>Jade Mills Estates</h1>
   </header>
   
-  <div id="menu-icon">&#9776;</div>
-
-  <nav id="nav">
+  <nav>
     <a href="#">Home</a>
     <a href="#">Properties</a>
-    <a href="#">Services</a>
+    <a href="#">About</a>
     <a href="#">Contact</a>
   </nav>
 
   <section>
-    <div class="property">
-      <img src="https://via.placeholder.com/800x400" alt="Property 1">
-      <div class="property-info">
-        <h2>Stunning Villa</h2>
-        <p>Modern villa with panoramic views</p>
+    <h2>Featured Listings</h2>
+    <div class="featured-listing">
+      <div class="property">
+        <img src="https://via.placeholder.com/800x400" alt="Property 1">
+        <div class="property-info">
+          <h3>Stunning Villa</h3>
+          <p>Modern villa with panoramic views</p>
+        </div>
       </div>
-    </div>
 
-    <div class="property">
-      <img src="https://via.placeholder.com/800x400" alt="Property 2">
-      <div class="property-info">
-        <h2>Luxury Apartment</h2>
-        <p>Spacious apartment in the heart of the city</p>
+      <div class="property">
+        <img src="https://via.placeholder.com/800x400" alt="Property 2">
+        <div class="property-info">
+          <h3>Luxury Apartment</h3>
+          <p>Spacious apartment in the heart of the city</p>
+        </div>
       </div>
-    </div>
 
-    <div class="property">
-      <img src="https://via.placeholder.com/800x400" alt="Property 3">
-      <div class="property-info">
-        <h2>Charming Cottage</h2>
-        <p>Quaint cottage with beautiful garden</p>
+      <div class="property">
+        <img src="https://via.placeholder.com/800x400" alt="Property 3">
+        <div class="property-info">
+          <h3>Charming Cottage</h3>
+          <p>Quaint cottage with beautiful garden</p>
+        </div>
       </div>
     </div>
   </section>
 
   <script>
-    var menuIcon = document.getElementById('menu-icon');
-    var nav = document.getElementById('nav');
-
-    menuIcon.addEventListener('click', function() {
-      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    document.addEventListener('DOMContentLoaded', function () {
+      const properties = document.querySelectorAll('.property');
+      properties.forEach(property => {
+        property.addEventListener('click', () => {
+          // Add your logic for handling property click
+          console.log('Property clicked:', property.querySelector('h3').innerText);
+        });
+      });
     });
   </script>
 </body>
