@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Majestic Haven Real Estate</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    nav {
+      display: none;
+      background-color: #333;
+      padding: 1em;
+    }
+
+    nav a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 0.5em;
+    }
+
+    #menu-icon {
+      display: none;
+      cursor: pointer;
+    }
+
+    @media only screen and (max-width: 600px) {
+      nav {
+        display: block;
+      }
+
+      #menu-icon {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Majestic Haven Real Estate</h1>
+  </header>
+  
+  <nav id="nav">
+    <a href="#">Home</a>
+    <a href="#">Properties</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div id="menu-icon">&#9776; Menu</div>
+
+  <script>
+    document.getElementById('menu-icon').addEventListener('click', function() {
+      var nav = document.getElementById('nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
+</body>
+</html>
